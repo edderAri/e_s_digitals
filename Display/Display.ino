@@ -17,6 +17,8 @@ const int ledE = 9;
 const int ledF = 10;
 const int ledG = 11;
 int pausa = 500;
+const int polsador = 2;
+boolean polsadorEstat = LOW
 
 //************************* SETUP *******************************
 
@@ -29,6 +31,16 @@ void setup() {               // configura el final de salida
   pinMode(ledE, OUTPUT);
   pinMode(ledF, OUTPUT);
   pinMode(ledG, OUTPUT);
+  pinMode(polsador, INPUT);
+
+   //tot parat
+  digitalWrite(ledA, LOW);
+  digitalWrite(ledB, LOW);
+  digitalWrite(ledC, LOW);
+  digitalWrite(ledD, LOW);
+  digitalWrite(ledE, LOW);
+  digitalWrite(ledF, LOW);
+  digitalWrite(ledG, LOW);
 
 }
 
@@ -36,6 +48,17 @@ void setup() {               // configura el final de salida
 
 void loop() {                // inicia el bucle del programa
     
+   delay(pausa);
+   polsadorEstat = digitalRead(polsador);
+   if (polsadorEstat == HIGH)
+   {
+    num = num + 1; //incrementar numero a mostar
+    if (num == 10) num = 0;  //despres del 9 pasa a 0
+   }
+    switch (num)
+   {
+    case 0:
+
     //numero 0
   digitalWrite(ledA, HIGH);
   digitalWrite(ledB, HIGH);
@@ -44,8 +67,8 @@ void loop() {                // inicia el bucle del programa
   digitalWrite(ledE, HIGH);
   digitalWrite(ledF, HIGH);
   digitalWrite(ledG, LOW);
-
-  delay(pausa);
+  break;
+ case 1:  
     
     //numero 1
   digitalWrite(ledA, LOW);
@@ -55,8 +78,8 @@ void loop() {                // inicia el bucle del programa
   digitalWrite(ledE, LOW);
   digitalWrite(ledF, LOW);
   digitalWrite(ledG, LOW);
-
-  delay(pausa);
+  break;
+ case 2:
 
     //numero 2
   digitalWrite(ledA, HIGH);
@@ -66,8 +89,8 @@ void loop() {                // inicia el bucle del programa
   digitalWrite(ledE, HIGH);
   digitalWrite(ledF, LOW);
   digitalWrite(ledG, HIGH);
-
-  delay(pausa);
+  break;
+ case 3:
 
     //numero 3
   digitalWrite(ledA, HIGH);
