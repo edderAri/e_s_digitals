@@ -155,6 +155,8 @@ void loop() {                // inicia el bucle del programa
   digitalWrite(ledF, HIGH);
   digitalWrite(ledG, HIGH);
 
+  delay(pausa);
+
 }
 
 //************************* FUNCIONS ****************************
